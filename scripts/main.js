@@ -59,22 +59,26 @@ require(["jquery", "jquery.sammy", "jquery.bootstrap"], function($, sammy){
             }
         };
         
+        var baseUrl = "/~ch891311";
         
-        this.get("^/$", function () {
+        this.get("^" + baseUrl + "/$", function () {
             loadContentFromPath("pages/home");
         });
         
-        this.get("^/#/:page/?$", function () {
-            loadContentFromPath("pages/" + this.params.page);
-            
+        this.get("^" + baseUrl + "/#/:page/?$", function () {
+            if (/^(#.*|\.{1,2})$/.test(this.params.page)) {
+                loadContent(notFoundContent);
+            } else {
+                loadContentFromPath("pages/" + this.params.page);
+            }
         });
 
-        this.get("^/#/$", function () {
+        this.get("^" + baseUrl + "/#/$", function () {
             loadContentFromPath("pages/home");
         });
         
 
-        this.get("/index.html", function () {
+        this.get("^" + baseUrl + "/index.html", function () {
             this.redirect("/#/");
             // loadContentFromPath("pages/home");
         });
