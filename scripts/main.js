@@ -23,7 +23,7 @@ require(["jquery", "jquery.sammy", "jquery.bootstrap"], function($, sammy){
         var notFoundContent = 
             "<div class='jumbotron'>" + 
                 "<span style='color: red; font-weight: bold;'>Erreur : cette page n'existe pas.</span>" + 
-            "</div";
+            "</div>";
 
         //Custom made functions
         var handleLoad = function(response, status, xhr) {
