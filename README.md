@@ -1,7 +1,10 @@
 personal-spa
 ============
 
-a responsive Simple Page Application that uses technologies such as requirejs, Sammy.js and bootstrap
+A responsive Simple Page Application that uses technologies such as requirejs, Sammy.js and bootstrap.
+
+Website is available <a href="http://accueil.labunix.uqam.ca/~ch891311/" target="_blank">here</a>.
+
 
 
 Technologies
