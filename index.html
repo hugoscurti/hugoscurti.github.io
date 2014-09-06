@@ -1,20 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html data-ng-app="app">
   <head>
-    <title>Hugo Scurti</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <title data-ng-bind="title"></title>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
+    <style>
+        /* This helps the ng-show/ng-hide animations start at the right place. */
+        /* Since Angular has this but needs to load, this gives us the class early. */
+        .ng-hide {
+            display: none!important;
+        }
+    </style>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+
+    <script>
+        // Must be first. IE10 mobile viewport fix
+        if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+            var msViewportStyle = document.createElement("style");
+            var mq = "@-ms-viewport{width:auto!important}";
+            msViewportStyle.appendChild(document.createTextNode(mq));
+            document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+        }
+    </script>
+    
+    <link href="content/bootstrap.min.css" rel="stylesheet">
+    <link href="content/styles.css" rel="stylesheet">
+    <link href="content/toastr.css" rel="stylesheet">
+    
   </head>
   <body>
-    <div class="container">
+    <div class="container-fluid">
         <nav class="navbar navbar-default navbar-inverse" role="navigation">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
@@ -29,9 +46,9 @@
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Laboratoires <b class="caret"></b></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown">Laboratoires <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#/INF2015">INF2015</a></li>
+                            <li><a href="#/labos">INF2015</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -43,10 +60,31 @@
             </div>
         </nav>
 
-        <div id="main">
+        <div>
+        	<div ng-view class="fader-animation"></div>
         </div>
     </div>
-
-    <script data-main="scripts/main" src="scripts/require.js"></script>
+    
+    <script src="scripts/jquery-2.0.3.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-animate.js"></script>
+    <script src="scripts/angular-route.js"></script>
+    <script src="scripts/angular-sanitize.js"></script>
+    <script src="scripts/toastr.js"></script>
+    <script src="scripts/ui-bootstrap-tpls-0.10.0.js"></script>
+    
+    
+    <script src="app/app.js"></script>
+    <script src="app/config.js"></script>
+    <script src="app/config.route.js"></script>
+    <script src="app/config.exceptionHandler.js"></script>
+    <script src="app/common/bootstrap/bootstrap.dialog.js"></script>
+    <script src="app/common/common.js"></script>
+    <script src="app/common/logger.js"></script>
+    
+    <script src="app/services/directives.js"></script>
+    <script src="app/services/routemediator.js"></script>
+    <script src="app/services/helper.js"></script>
   </body>
 </html>

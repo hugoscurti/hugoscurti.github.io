@@ -11,7 +11,6 @@ Technologies
 ------------
 
 - HTML5
+- AngularJS
 - Bootstrap 3.0
-- RequireJS
 - jQuery 2.0.3
-- Sammy.js
