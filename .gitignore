@@ -1,2 +1,5 @@
-runSimpleServer.BAT
+# Some IDE folders and other stuff
+
+SimpleServer.BAT
 .project
+.vscode
