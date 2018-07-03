@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html data-ng-app="app">
   <head>
     <title data-ng-bind="title"></title>
@@ -26,42 +26,46 @@
     </script>
     
     <link href="content/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="content/yeti-bootstrap.min.css">
     <link href="content/styles.css" rel="stylesheet">
     <link href="content/toastr.css" rel="stylesheet">
     
   </head>
   <body>
-    <div class="container-fluid">
+    <div class="container">
         <nav class="navbar navbar-default navbar-inverse" role="navigation">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#/">Hugo Scurti</a>
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#/">Hugo Scurti</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                    <!-- <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Laboratoires <b class="caret"></b></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#/labos">INF2015</a></li>
+                            </ul>
+                        </li>
+                    </ul> -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#/contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            
-            <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                <!-- <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown">Laboratoires <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#/labos">INF2015</a></li>
-                        </ul>
-                    </li>
-                </ul> -->
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#/contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
+
         </nav>
 
-        <div>
-        	<div ng-view class="fader-animation"></div>
+        <div class="view-container">
+        	<div ng-view class="shuffle-animation"></div>
         </div>
     </div>
     
@@ -70,7 +74,6 @@
     <script src="scripts/angular.js"></script>
     <script src="scripts/angular-animate.js"></script>
     <script src="scripts/angular-route.js"></script>
-    <script src="scripts/angular-sanitize.js"></script>
     <script src="scripts/toastr.js"></script>
     <script src="scripts/ui-bootstrap-tpls-0.10.0.js"></script>
     

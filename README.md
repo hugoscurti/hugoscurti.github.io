@@ -1,7 +1,7 @@
 personal-spa
 ============
 
-A responsive Simple Page Application that uses technologies such as RequireJS, Sammy.js and Bootstrap 3.
+A responsive Simple Page Application that uses Angular, Bootstrap 3 and jQuery.
 
 
 

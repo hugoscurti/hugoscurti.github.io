@@ -8,19 +8,17 @@
     
     // Configure the routes and route resolvers
     app.config(['$routeProvider', 'routes', routeConfigurator]);
+
     function routeConfigurator($routeProvider, routes) {
 
         routes.forEach(function (r) {
             $routeProvider.when(r.url, r.config);
-            setRoute(r.url, r.config);
         });
-        $routeProvider.otherwise({ redirectTo: '/' });
 
-        function setRoute(url, definition) {
-            $routeProvider.when(url, definition);
-            return $routeProvider;
-        }
-
+        $routeProvider.otherwise({
+        	title: 'Not found',
+        	template: '<not-found />' 
+    	});
     }
 
     // Define the routes 

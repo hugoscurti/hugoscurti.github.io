@@ -35,7 +35,7 @@
         docTitle: 'Hugo Scurti: ',
         events: events,
         keyCodes:keyCodes,
-        version: '2.1.0'
+        version: '2.1.1'
     };
 
     app.value('config', config);

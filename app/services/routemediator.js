@@ -16,10 +16,12 @@
         function setRoutingHandlers() {
             updateDocTitle();
             handleRoutingErrors();
+            hideDropDownOnRouteChange();
         }
 
         return service;
 
+        //#region Internal Methods        
         function handleRoutingErrors() {
             $rootScope.$on('$routeChangeError',
                 function (event, current, previous, rejection) {
@@ -40,8 +42,16 @@
             });
         }
 
-        //#region Internal Methods        
-
+        function hideDropDownOnRouteChange() {
+            $rootScope.$on('$routeChangeStart',
+                function (event, current, previous) {
+                    //Hide the menu if visible
+                    var buttonToggle = $("button[data-target='#navbar-collapse-1']");
+                    if (!buttonToggle.is(":hidden") && !$("#navbar-collapse-1").is(':hidden')) {
+                        $("#navbar-collapse-1").collapse("hide");
+                    }
+            });
+        }
         //#endregion
     }
 })();

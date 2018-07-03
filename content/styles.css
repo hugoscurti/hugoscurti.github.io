@@ -243,7 +243,7 @@ a {
 /*#region wrapper for angular ng-include and ng-view animations*/
 .view-container {
     position: relative;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 /*#endregion */
 
@@ -251,14 +251,14 @@ a {
 
 .shuffle-animation.ng-enter,
 .shuffle-animation.ng-leave {
+    -moz-transition: ease-out all 0.3s;
+    -o-transition: ease-out all 0.3s;
+    -webkit-transition: ease-out all 0.3s;
+    transition: ease-out all 0.3s;
     position: relative;
 }
 
 .shuffle-animation.ng-enter {
-    -moz-transition: ease-out all 0.3s 0.4s;
-    -o-transition: ease-out all 0.3s 0.4s;
-    -webkit-transition: ease-out all 0.3s 0.4s;
-    transition: ease-out all 0.3s 0.4s;
     left: 2em;
     opacity: 0;
 }
@@ -268,17 +268,22 @@ a {
         opacity: 1;
     }
 
+    .shuffle-animation.ng-leave + .shuffle-animation.ng-enter{
+        -moz-transition-delay: 0.4s;
+        -o-transition-delay: 0.4s;
+        -webkit-transition-delay: 0.4s;
+        transition-delay: 0.4s;
+        position:absolute!important;    /*Fixe la deuxième vue qui se positionnait en-dessous de la prmière durant le delay */
+        top:0;
+    }
+
 .shuffle-animation.ng-leave {
-    -moz-transition: 0.3s ease-out all;
-    -o-transition: 0.3s ease-out all;
-    -webkit-transition: 0.3s ease-out all;
-    transition: 0.3s ease-out all;
-    left: 0;
+    right:0;
     opacity: 1;
 }
 
     .shuffle-animation.ng-leave.ng-leave-active {
-        left: 2em;
+        right: 2em;
         opacity: 0;
     }
 /*#endregion*/
@@ -317,159 +322,3 @@ a {
 }
 
 /*#endregion*/
-
-/*#region Angular ng-show dissolve animation */
-.dissolve-animation.ng-hide-remove {
-    display: inline!important;
-}
-
-.dissolve-animation.ng-hide-remove,
-.dissolve-animation.ng-hide-add {
-    -webkit-transition: 0.8s linear all;
-    -moz-transition: 0.8s linear all;
-    -o-transition: 0.8s linear all;
-    transition: 0.8s linear all;
-}
-
-    .dissolve-animation.ng-hide-remove.ng-hide-remove-active,
-    .dissolve-animation.ng-hide-add {
-        opacity: 1;
-    }
-
-        .dissolve-animation.ng-hide-add.ng-hide-add-active,
-        .dissolve-animation.ng-hide-remove {
-            opacity: 0;
-        }
-/*#endregion */
-
-/*#region toastr */
-#toast-container.toast-top-full-width > div, #toast-container.toast-bottom-full-width > div {
-    margin: 4px auto;
-}
-/*#endregion */
-
-/*#region Responsive */
-
-@media (max-width: 979px) {
-    .sidebar-filler {
-        width: 200px;
-    }
-
-    .nav-collapse {
-        clear: none;
-    }
-
-        .nav-collapse .nav > li {
-            float: left;
-        }
-
-    .navbar .btn-navbar {
-        display: none;
-    }
-
-    .nav-collapse,
-    .nav-collapse.collapse {
-        height: inherit;
-        overflow: inherit;
-    }
-
-    .page-splash-message {
-        font-size: 300%;
-    }
-
-    .btn-group.pull-right {
-        float: none !important;
-        display: block;
-    }
-}
-
-@media (max-width: 767px) {
-    .sidebar-filler {
-        display: none;
-    }
-
-    .nav-collapse {
-        clear: both;
-    }
-
-        .nav-collapse .nav > li {
-            float: none;
-        }
-
-    .navbar .btn-navbar {
-        display: block;
-    }
-
-    .nav-collapse,
-    .nav-collapse.collapse {
-        height: 0;
-        overflow: hidden;
-    }
-
-    .page-splash-message {
-        font-size: 200%;
-        margin: 40% auto 0 auto;
-    }
-
-        .page-splash-message.page-splash-message-subtle {
-            font-size: 150%;
-        }
-
-    .sidebar .sidebar-inner {
-        height: inherit;
-    }
-}
-
-@media (max-width: 320px) {
-    .today-datas li {
-        padding: 1em .5em;
-        line-height: 1em;
-    }
-
-        .today-datas li i {
-            font-size: 2em;
-        }
-
-        .today-datas li .datas-text span {
-            font-size: 1em;
-        }
-
-    .btn {
-        margin: .2em;
-        width: 7em;
-    }
-
-    .btn-group > .btn {
-        display: block;
-        width: 7em;
-    }
-
-    .btn-group.pull-right {
-        margin: .2em 0;
-    }
-
-    input,
-    select {
-        width: 85% !important;
-    }
-
-    textarea {
-        width: 80%;
-    }
-
-    .img-polaroid.user-pic {
-        width: 5em;
-    }
-
-    .user .user-details {
-        margin-left: 7em;
-        margin-right: .5em;
-    }
-
-    h3 {
-        font-size: 1.5em !important;
-        line-height: 1.2em !important;
-    }
-}
-
-/*#endregion */
