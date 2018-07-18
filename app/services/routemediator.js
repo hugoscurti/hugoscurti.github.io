@@ -3,41 +3,26 @@
 
     var serviceId = 'routemediator';
 
-    angular.module('app').factory(serviceId, ['config', '$rootScope', '$location', 'logger', routemediator]);
+    angular.module('app').factory(serviceId, ['$rootScope', routemediator]);
 
-    function routemediator(config, $rootScope, $location, logger) {
+    function routemediator($rootScope) {
         // Define the functions and properties to reveal.
-        var handleRouteChangeError = false;
-
         var service = {
             setRoutingHandlers: setRoutingHandlers
         };
 
         function setRoutingHandlers() {
             updateDocTitle();
-            handleRoutingErrors();
             hideDropDownOnRouteChange();
         }
 
         return service;
 
         //#region Internal Methods        
-        function handleRoutingErrors() {
-            $rootScope.$on('$routeChangeError',
-                function (event, current, previous, rejection) {
-                    if (handleRouteChangeError) { return; }
-                    handleRouteChangeError = true;
-                    var msg = 'Error routing : ' + (current && current.name) + '. ' + (rejection.msg || '');
-                    logger.logWarning(msg, current, serviceId, true);
-                    $location.path('/');
-                });
-        }
-
         function updateDocTitle() {
             $rootScope.$on('$routeChangeSuccess',
                 function (event, current, previous) {
-                    handleRouteChangeError = true;
-                    var title = config.docTitle + ' ' + (current.title || '');
+                    var title = 'Hugo Scurti: ' + (current.title || '');
                     $rootScope.title = title;
             });
         }

@@ -44,16 +44,6 @@
                         content: ''
                     }
                 }
-            },{
-                url: '/labos',
-                config: {
-                    title: 'Labos',
-                    templateUrl: 'pages/labos.html',
-                    settings: {
-                        nav: 3,
-                        content: ''
-                    }
-                }
             }
         ];
     }

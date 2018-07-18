@@ -3,19 +3,15 @@
 
     var app = angular.module('app');
 
-    app.directive('notFound', ['config', function (config) {
+    app.directive('notFound', function () {
     	
     	var directive = {
     		template : "<div class='jumbotron'>" + 
-			            	"<span style='color: red; font-weight: bold;'>Erreur : cette page n'existe pas.</span>" + 
+			            	"<span style='color: red; font-weight: bold;'>Error : this page doesn't exist.</span>" + 
 			        	"</div>",
         	restrict: 'E'
-	        
-        	
     	};
     	
     	return directive;
-    	 
-    }]);
-    
+    });
 })();
