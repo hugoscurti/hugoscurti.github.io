@@ -3,8 +3,18 @@
 
     var app = angular.module('app');
 
-    // Collect the routes
+    // Collect routes
     app.constant('routes', getRoutes());
+
+    // Set up directive for default "not found" page
+    app.directive('notFound', function () {
+    	return {
+    		template : "<div class='jumbotron'>" + 
+			            	"<span style='color: red; font-weight: bold;'>Error : this page doesn't exist.</span>" + 
+			        	"</div>",
+        	restrict: 'E'
+    	};
+    });
     
     // Configure the routes and route resolvers
     app.config(['$routeProvider', 'routes', routeConfigurator]);
@@ -43,6 +53,12 @@
                         nav: 2,
                         content: ''
                     }
+                }
+            }, {
+                url: '/projects',
+                config: {
+                    title: 'Projects',
+                    templateUrl: 'pages/projects.html'
                 }
             }
         ];

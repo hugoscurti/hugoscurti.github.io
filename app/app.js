@@ -9,7 +9,7 @@
 	    'ngRoute'          // routing
 	]);
 	
-	app.run(['$route','routemediator', function($route, routemediator){
+	app.run(['routemediator', function(routemediator){
 		routemediator.setRoutingHandlers();
 	}]);
 	
